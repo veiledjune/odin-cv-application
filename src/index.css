@@ -2,11 +2,17 @@
 
 :root {
   font-family: Arial, Helvetica, sans-serif;
+  --odin-dark: rgb(16, 24, 40);
 }
 
 * {
   margin: 0;
   padding: 0;
+}
+
+body {
+  background-color: var(--odin-dark);
+  color: white;
 }
 
 button {
