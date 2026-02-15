@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 function CustomInput({ type, id, value, placeholder, onChange }) {
   return (
     <input
