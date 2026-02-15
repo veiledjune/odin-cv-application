@@ -1,20 +1,20 @@
 import { useState } from 'react';
 
-function CustomInput({ type, id, placeholder }) {
-  const [value, setValue] = useState('');
+function CustomInput({ type, id, value, placeholder, onChange }) {
   return (
     <input
       type={type}
       id={id}
       value={value}
       placeholder={placeholder}
-      onChange={(event) => setValue(event.target.value)}
+      onChange={onChange}
+      autoComplete={type === 'email' ? 'on' : 'off'}
       required
     />
   );
 }
 
-export function Form() {
+export function Form({ cvData, setCvData, toggleSubmitted }) {
   const formData = {
     personalInfo: [
       {
@@ -50,7 +50,7 @@ export function Form() {
         placeholder: 'Ex. Law',
       },
       {
-        id: 'graduation-date',
+        id: 'graduationDate',
         label: 'Graduation Date: *',
         type: 'date',
       },
@@ -75,19 +75,19 @@ export function Form() {
         placeholder: 'Ex. Bailing Mark Zuckerberg out of jail',
       },
       {
-        id: 'date-start',
+        id: 'dateStart',
         label: 'From: *',
         type: 'date',
       },
       {
-        id: 'date-end',
+        id: 'dateEnd',
         label: 'To: *',
         type: 'date',
       },
     ],
   };
   return (
-    <form className="cv-form">
+    <form onSubmit={toggleSubmitted} className="cv-form">
       <fieldset className="personal-info">
         <div className="fieldset-title">Personal Information:</div>
         {formData.personalInfo.map((data) => {
@@ -97,7 +97,11 @@ export function Form() {
               <CustomInput
                 type={data.type}
                 id={data.id}
+                value={cvData[`${data.id}`]}
                 placeholder={data.placeholder}
+                onChange={(event) =>
+                  setCvData({ ...cvData, [`${data.id}`]: event.target.value })
+                }
               />
             </div>
           );
@@ -112,7 +116,11 @@ export function Form() {
               <CustomInput
                 type={data.type}
                 id={data.id}
+                value={cvData[`${data.id}`]}
                 placeholder={data.placeholder}
+                onChange={(event) =>
+                  setCvData({ ...cvData, [`${data.id}`]: event.target.value })
+                }
               />
             </div>
           );
@@ -127,7 +135,11 @@ export function Form() {
               <CustomInput
                 type={data.type}
                 id={data.id}
+                value={cvData[`${data.id}`]}
                 placeholder={data.placeholder}
+                onChange={(event) =>
+                  setCvData({ ...cvData, [`${data.id}`]: event.target.value })
+                }
               />
             </div>
           );
