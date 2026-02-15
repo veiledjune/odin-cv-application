@@ -12,17 +12,17 @@ export function App() {
   }
 
   const [cvData, setCvData] = useState({
-    name: 'Cameron Brown',
-    email: 'email@email.com',
-    number: '+27666',
-    school: 'School',
-    degree: 'Computer Science',
-    graduationDate: '2/15/2026',
-    company: 'Meta',
-    position: 'Head Mistress',
-    responsibility: 'Looking pretty',
-    dateStart: '2/15/2026',
-    dateEnd: '2/15/2026',
+    name: '',
+    email: '',
+    number: '',
+    school: '',
+    degree: '',
+    graduationDate: '',
+    company: '',
+    position: '',
+    responsibility: '',
+    dateStart: '',
+    dateEnd: '',
   });
 
   return (
