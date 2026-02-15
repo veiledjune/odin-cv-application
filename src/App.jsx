@@ -1,7 +1,7 @@
 import { Header } from './components/Header';
 import { Form } from './components/Form';
 import { Cv } from './components/Cv';
-import './App.css';
+import './styles/App.css';
 import { useState } from 'react';
 
 export function App() {
