@@ -29,11 +29,15 @@ export function App() {
     <>
       <Header />
       <main className="main">
-        <Form
-          cvData={cvData}
-          setCvData={setCvData}
-          toggleSubmitted={toggleSubmitted}
-        />
+        {!isSubmitted ? (
+          <Form
+            cvData={cvData}
+            setCvData={setCvData}
+            toggleSubmitted={toggleSubmitted}
+          />
+        ) : (
+          <Cv cvData={cvData} toggleSubmitted={toggleSubmitted} />
+        )}
       </main>
     </>
   );
